@@ -1,0 +1,14 @@
+name: Run PHP_CodeSniffer with reviewdog
+description: Run PHP_CodeSniffer with reviewdog
+author: hrysd
+
+inputs:
+  github_token:
+    description: API TOKEN
+    required: true
+
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.github_token }}
