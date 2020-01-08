@@ -7,8 +7,23 @@ inputs:
     description: API TOKEN
     required: true
 
+  level:
+    description: Report level for reviewdog command
+    default: error
+
+  reporter:
+    description: Reporter for reviewdog command
+    default: github-pr-check
+
+  target_directory:
+    description: Directory to check by PHP_CodeSniffer
+    required: true
+
 runs:
   using: docker
   image: Dockerfile
   args:
     - ${{ inputs.github_token }}
+    - ${{ inputs.level }}
+    - ${{ inputs.reporter }}
+    - ${{ inputs.target_directory }}
