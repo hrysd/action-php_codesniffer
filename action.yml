@@ -15,6 +15,10 @@ inputs:
     description: Reporter for reviewdog command
     default: github-pr-check
 
+  standard:
+    description: Coding standard or path to configuration file
+    required: true
+
   target_directory:
     description: Directory to check by PHP_CodeSniffer
     required: true
@@ -26,4 +30,5 @@ runs:
     - ${{ inputs.github_token }}
     - ${{ inputs.level }}
     - ${{ inputs.reporter }}
+    - ${{ inputs.standard }}
     - ${{ inputs.target_directory }}
