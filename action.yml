@@ -32,3 +32,7 @@ runs:
     - ${{ inputs.reporter }}
     - ${{ inputs.standard }}
     - ${{ inputs.target_directory }}
+
+branding:
+  icon: alert-triangle
+  color: yellow
