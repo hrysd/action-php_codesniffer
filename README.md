@@ -1,68 +1,61 @@
-# action-template
+# Github Action: Run PHP\_CodeSniffer with reviewdog
 
-<!-- TODO: replace reviewdog/action-template with your repo name -->
-[![Test](https://github.com/reviewdog/action-template/workflows/Test/badge.svg)](https://github.com/reviewdog/action-template/actions?query=workflow%3ATest)
-[![reviewdog](https://github.com/reviewdog/action-template/workflows/reviewdog/badge.svg)](https://github.com/reviewdog/action-template/actions?query=workflow%3Areviewdog)
-[![depup](https://github.com/reviewdog/action-template/workflows/depup/badge.svg)](https://github.com/reviewdog/action-template/actions?query=workflow%3Adepup)
-[![release](https://github.com/reviewdog/action-template/workflows/release/badge.svg)](https://github.com/reviewdog/action-template/actions?query=workflow%3Arelease)
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/reviewdog/action-template?logo=github&sort=semver)](https://github.com/reviewdog/action-template/releases)
+This action runs [PHP\_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) with [reviewdog](https://github.com/reviewdog/reviewdog).
+
+[![Test](https://github.com/hrysd/action-php_codesniffer/workflows/Test/badge.svg)](https://github.com/hrysd/action-php_codesniffer/actions?query=workflow%3ATest)
+[![reviewdog](https://github.com/hrysd/action-php_codesniffer/workflows/hrysd/badge.svg)](https://github.com/hrysd/action-php_codesniffer/actions?query=workflow%3Ahrysd)
+[![depup](https://github.com/hrysd/action-php_codesniffer/workflows/depup/badge.svg)](https://github.com/hrysd/action-php_codesniffer/actions?query=workflow%3Adepup)
+[![release](https://github.com/hrysd/action-php_codesniffer/workflows/release/badge.svg)](https://github.com/hrysd/action-php_codesniffer/actions?query=workflow%3Arelease)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/hrysd/action-php_codesniffer?logo=github&sort=semver)](https://github.com/hrysd/action-php_codesniffer/releases)
 [![action-bumpr supported](https://img.shields.io/badge/bumpr-supported-ff69b4?logo=github&link=https://github.com/haya14busa/action-bumpr)](https://github.com/haya14busa/action-bumpr)
 
 ![github-pr-review demo](https://user-images.githubusercontent.com/3797062/73162963-4b8e2b00-4132-11ea-9a3f-f9c6f624c79f.png)
 ![github-pr-check demo](https://user-images.githubusercontent.com/3797062/73163032-70829e00-4132-11ea-8481-f213a37db354.png)
 
-This is a template repository for [reviewdog](https://github.com/reviewdog/reviewdog) action with release automation.
-Click `Use this template` button to create your reviewdog action :dog:!
 
-If you want to create your own reviewdog action from scratch without using this
-template, please check and copy release automation flow.
-It's important to manage release workflow and sync reviewdog version for all
-reviewdog actions.
+## Inputs
 
-This repo contains a sample action to run [misspell](https://github.com/client9/misspell).
+### `github_token`
 
-## Input
+**Required**. Must be in form of `github_token: ${{ secrets.github_token }}`
 
-<!-- TODO: update -->
-```yaml
-inputs:
-  github_token:
-    description: 'GITHUB_TOKEN'
-    default: '${{ github.token }}'
-  ### Flags for reviewdog ###
-  level:
-    description: 'Report level for reviewdog [info,warning,error]'
-    default: 'error'
-  reporter:
-    description: 'Reporter of reviewdog command [github-pr-check,github-check,github-pr-review].'
-    default: 'github-pr-check'
-  ### Flags for <linter-name> ###
-  locale:
-    description: '-locale flag of misspell. (US/UK)'
-    default: ''
-```
+### `level`
 
-## Usage
-<!-- TODO: update. replace `template` with the linter name -->
+Optional. Report level for reviewdog [info,warning,error].
+It's same as `-level` flag of reviewdog.
+
+### `reporter`
+
+Reporter of reviewdog command [github-pr-check,github-check,github-pr-review].
+Default is github-pr-check.
+It's same as `-reporter` flag of reviewdog.
+
+### `standard`
+
+**Required**. Coding standard or path to PHP\_CodeSniffer's configuration file
+
+### `target_directory`
+
+**Required**. Directory to run PHP\_CodeSniffer
+
+## Example Usage
+
+### [.github/workflows/reviewdog.yml](.github/workflows/reviewdog.yml)
 
 ```yaml
 name: reviewdog
 on: [pull_request]
+
 jobs:
-  # TODO: change `linter_name`.
-  linter_name:
-    name: runner / <linter-name>
+  php_codesniffer:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: reviewdog/action-template@v1
+      - uses: actions/checkout@v1
+      - uses: hrysd/action-php_codesniffer@master
         with:
           github_token: ${{ secrets.github_token }}
-          # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
-          reporter: github-pr-review
-          # Change reporter level if you need.
-          # GitHub Status Check won't become failure with warning.
-          level: warning
+          standard: PSR12
+          target_directory: src
 ```
 
 ## Development
