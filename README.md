@@ -1,4 +1,4 @@
-# Github Action: Run PHP\_CodeSniffer with reviewdog
+# GitHub Action: Run PHP\_CodeSniffer with reviewdog
 
 This action runs [PHP\_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) with [reviewdog](https://github.com/reviewdog/reviewdog).
 
