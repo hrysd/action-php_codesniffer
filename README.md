@@ -51,7 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: hrysd/action-php_codesniffer@master
+      - uses: hrysd/action-php_codesniffer@v1
         with:
           github_token: ${{ secrets.github_token }}
           standard: PSR12
