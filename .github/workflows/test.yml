@@ -15,7 +15,7 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-check
           standard: PSR12
-          target_directory: src
+          target_directory: testdata
 
   test-pr-check:
     if: github.event_name == 'pull_request'
@@ -28,7 +28,7 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
           standard: PSR12
-          target_directory: src
+          target_directory: testdata
 
   test-pr-review:
     if: github.event_name == 'pull_request'
@@ -41,4 +41,4 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           standard: PSR12
-          target_directory: src
+          target_directory: testdata
