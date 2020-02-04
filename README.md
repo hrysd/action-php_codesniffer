@@ -3,7 +3,7 @@
 This action runs [PHP\_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) with [reviewdog](https://github.com/reviewdog/reviewdog).
 
 [![Test](https://github.com/hrysd/action-php_codesniffer/workflows/Test/badge.svg)](https://github.com/hrysd/action-php_codesniffer/actions?query=workflow%3ATest)
-[![reviewdog](https://github.com/hrysd/action-php_codesniffer/workflows/hrysd/badge.svg)](https://github.com/hrysd/action-php_codesniffer/actions?query=workflow%3Ahrysd)
+[![reviewdog](https://github.com/hrysd/action-php_codesniffer/workflows/reviewdog/badge.svg)](https://github.com/hrysd/action-php_codesniffer/actions?query=workflow%3Ahrysd)
 [![depup](https://github.com/hrysd/action-php_codesniffer/workflows/depup/badge.svg)](https://github.com/hrysd/action-php_codesniffer/actions?query=workflow%3Adepup)
 [![release](https://github.com/hrysd/action-php_codesniffer/workflows/release/badge.svg)](https://github.com/hrysd/action-php_codesniffer/actions?query=workflow%3Arelease)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/hrysd/action-php_codesniffer?logo=github&sort=semver)](https://github.com/hrysd/action-php_codesniffer/releases)
