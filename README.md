@@ -9,8 +9,8 @@ This action runs [PHP\_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/hrysd/action-php_codesniffer?logo=github&sort=semver)](https://github.com/hrysd/action-php_codesniffer/releases)
 [![action-bumpr supported](https://img.shields.io/badge/bumpr-supported-ff69b4?logo=github&link=https://github.com/haya14busa/action-bumpr)](https://github.com/haya14busa/action-bumpr)
 
-![github-pr-review demo](https://user-images.githubusercontent.com/3797062/73162963-4b8e2b00-4132-11ea-9a3f-f9c6f624c79f.png)
-![github-pr-check demo](https://user-images.githubusercontent.com/3797062/73163032-70829e00-4132-11ea-8481-f213a37db354.png)
+![github-pr-review demo](https://user-images.githubusercontent.com/1663465/73769679-6b6ec000-47be-11ea-8481-34381232ad65.png)
+![github-pr-check demo](https://user-images.githubusercontent.com/1663465/73769700-7164a100-47be-11ea-9580-ecf9da5575e8.png)
 
 
 ## Inputs
