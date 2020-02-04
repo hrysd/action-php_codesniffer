@@ -1,6 +1,7 @@
 <?php
 
-function echoFalse()
-{
-    echo FALSE;
+if ($a) {
+    echo 'a';
+} else if ($b) {
+    echo 'b';
 }
