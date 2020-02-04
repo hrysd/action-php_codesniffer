@@ -1,0 +1,44 @@
+name: Test
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+jobs:
+  test-check:
+    name: runner / PHP_CodeSniffer (github-check)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-check
+          standard: PSR12
+          target_directory: testdata
+
+  test-pr-check:
+    if: github.event_name == 'pull_request'
+    name: runner / PHP_CodeSniffer (github-pr-check)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-check
+          standard: PSR12
+          target_directory: testdata
+
+  test-pr-review:
+    if: github.event_name == 'pull_request'
+    name: runner / PHP_CodeSniffer (github-pr-review)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          standard: PSR12
+          target_directory: testdata

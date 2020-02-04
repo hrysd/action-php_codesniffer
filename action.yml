@@ -1,20 +1,21 @@
-name: Run PHP_CodeSniffer with reviewdog
-description: Run PHP_CodeSniffer with reviewdog
-author: hrysd
-
+name: 'Run PHP_CodeSniffer with reviewdog'
+description: '🐶 Run PHP_CodeSniffer with reviewdog on pull requests to improve code review experience.'
+author: 'hrysd'
 inputs:
   github_token:
-    description: API TOKEN
-    required: true
+    description: 'GITHUB_TOKEN'
+    default: '${{ github.token }}'
 
+  ### Flags for reviewdog ###
   level:
-    description: Report level for reviewdog command
-    default: error
+    description: 'Report level for reviewdog [info,warning,error]'
+    default: 'error'
 
   reporter:
-    description: Reporter for reviewdog command
-    default: github-pr-check
+    description: 'Reporter of reviewdog command [github-pr-check,github-pr-review].'
+    default: 'github-pr-check'
 
+  ### Flags for PHP_CodeSniffer ###
   standard:
     description: Coding standard or path to configuration file
     required: true
@@ -24,8 +25,8 @@ inputs:
     required: true
 
 runs:
-  using: docker
-  image: Dockerfile
+  using: 'docker'
+  image: 'Dockerfile'
   args:
     - ${{ inputs.github_token }}
     - ${{ inputs.level }}
@@ -34,5 +35,5 @@ runs:
     - ${{ inputs.target_directory }}
 
 branding:
-  icon: alert-triangle
-  color: yellow
+  icon: 'check'
+  color: 'blue'
