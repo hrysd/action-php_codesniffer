@@ -16,6 +16,7 @@ jobs:
           reporter: github-check
           standard: PSR12
           target_directory: testdata
+          level: warning
 
   test-pr-check:
     if: github.event_name == 'pull_request'
@@ -29,6 +30,7 @@ jobs:
           reporter: github-pr-check
           standard: PSR12
           target_directory: testdata
+          level: warning
 
   test-pr-review:
     if: github.event_name == 'pull_request'
