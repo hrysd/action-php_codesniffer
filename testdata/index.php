@@ -1,6 +1,6 @@
 <?php
 
-public function ho_Ge()
+function echoFalse()
 {
-    echo 'This function name is wrong';
+    echo FALSE;
 }
