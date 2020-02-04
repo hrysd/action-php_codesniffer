@@ -6,7 +6,7 @@ on:
   pull_request:
 jobs:
   test-check:
-    name: runner / <linter-name> (github-check)
+    name: runner / PHP_CodeSniffer (github-check)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,12 +14,12 @@ jobs:
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-check
-          level: info
-          locale: "US"
+          standard: PSR12
+          target_directory: src
 
   test-pr-check:
     if: github.event_name == 'pull_request'
-    name: runner / <linter-name> (github-pr-check)
+    name: runner / PHP_CodeSniffer (github-pr-check)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -27,12 +27,12 @@ jobs:
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
-          level: error
-          locale: "US"
+          standard: PSR12
+          target_directory: src
 
   test-pr-review:
     if: github.event_name == 'pull_request'
-    name: runner / <linter-name> (github-pr-review)
+    name: runner / PHP_CodeSniffer (github-pr-review)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -40,5 +40,5 @@ jobs:
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
-          level: error
-          locale: "US"
+          standard: PSR12
+          target_directory: src
