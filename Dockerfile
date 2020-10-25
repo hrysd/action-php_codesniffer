@@ -1,6 +1,6 @@
 FROM php:7.4.1-alpine
 
-ENV REVIEWDOG_VERSION=v0.9.17
+ENV REVIEWDOG_VERSION=v0.11.0
 
 RUN apk --no-cache add git
 
